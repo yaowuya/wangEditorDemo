@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>wangEditor</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/plugins/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/plugins/wangEditor.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/plugins/wangEditor.css"/>
     <style type="text/css">
-        #div1 {
-            height: 300px;
-        }
         .container {
             width: 100%;
             margin: 0 auto;
@@ -18,17 +15,27 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="div1">
-            <p>请输入内容...</p>
+<div class="container">
+    <form class="form-horizontal col-sm-8" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">文本编辑框</label>
+            <div class="col-sm-10">
+                <textarea name="textEditor" id="div1" style="height:400px;">
+                </textarea>
+            </div>
         </div>
-        <button id="btn1">获取内容</button>
-    </div>
-    <script type="text/javascript" src="assets/js/plugins/require.js"></script>
-    <script type="text/javascript">
-        require(['assets/js/common'],function(){
-                require(['app/wangDemo']);
-            });
-    </script>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="btn1" class="btn btn-success">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="assets/js/plugins/require.js"></script>
+<script type="text/javascript">
+    require(['assets/js/common'], function () {
+        require(['app/wangDemo']);
+    });
+</script>
 </body>
 </html>

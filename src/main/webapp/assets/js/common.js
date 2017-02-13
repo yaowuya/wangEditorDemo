@@ -25,6 +25,7 @@ require.config({
     'datepicker':'plugins/bootstrap-datetimepicker',
     'moment':'plugins/moment-with-locales',
     'wangEditor':'plugins/wangEditor',
+    'plupload':'plugins/plupload/plupload.full.min',
   },
   shim: {
     'bootstrap': {
