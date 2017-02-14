@@ -1,6 +1,9 @@
-C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\entity\Ueditor.java
+C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\service\inter\WangEditorService.java
 C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\common\JsonResult.java
+C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\controller\WangEditorController.java
 C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\interceptor\LoginInterceptor.java
-C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\dao\UeditorMapper.java
+C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\dao\WangEditorMapper.java
+C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\entity\WangEditor.java
+C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\service\impl\WangEditorServiceImpl.java
 C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\common\Constant.java
 C:\Users\zhongrf\Desktop\UEditor\ueditor\src\main\java\ueditor\com\controller\BaseController.java
