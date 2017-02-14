@@ -14,4 +14,6 @@ public interface WangEditorMapper {
     int updateByPrimaryKeySelective(WangEditor record);
 
     int updateByPrimaryKeyWithBLOBs(WangEditor record);
+
+    int updateByPrimaryKey(WangEditor record);
 }
