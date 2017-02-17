@@ -4,16 +4,18 @@
   <resultMap id="BaseResultMap" type="ueditor.com.entity.WangEditor" >
     <constructor >
       <idArg column="wang_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="wang_name" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="ueditor.com.entity.WangEditor" >
     <constructor >
       <idArg column="wang_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="wang_name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="wang_html" jdbcType="LONGVARBINARY" javaType="_byte[]" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    wang_id
+    wang_id, wang_name
   </sql>
   <sql id="Blob_Column_List" >
     wang_html
@@ -31,14 +33,19 @@
     where wang_id = #{wangId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="ueditor.com.entity.WangEditor" >
-    insert into wangeditor (wang_id, wang_html)
-    values (#{wangId,jdbcType=INTEGER}, #{wangHtml,jdbcType=LONGVARBINARY})
+    insert into wangeditor (wang_id, wang_name, wang_html
+      )
+    values (#{wangId,jdbcType=INTEGER}, #{wangName,jdbcType=VARCHAR}, #{wangHtml,jdbcType=LONGVARBINARY}
+      )
   </insert>
   <insert id="insertSelective" parameterType="ueditor.com.entity.WangEditor" >
     insert into wangeditor
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="wangId != null" >
         wang_id,
+      </if>
+      <if test="wangName != null" >
+        wang_name,
       </if>
       <if test="wangHtml != null" >
         wang_html,
@@ -48,6 +55,9 @@
       <if test="wangId != null" >
         #{wangId,jdbcType=INTEGER},
       </if>
+      <if test="wangName != null" >
+        #{wangName,jdbcType=VARCHAR},
+      </if>
       <if test="wangHtml != null" >
         #{wangHtml,jdbcType=LONGVARBINARY},
       </if>
@@ -56,6 +66,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="ueditor.com.entity.WangEditor" >
     update wangeditor
     <set >
+      <if test="wangName != null" >
+        wang_name = #{wangName,jdbcType=VARCHAR},
+      </if>
       <if test="wangHtml != null" >
         wang_html = #{wangHtml,jdbcType=LONGVARBINARY},
       </if>
@@ -64,7 +77,13 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="ueditor.com.entity.WangEditor" >
     update wangeditor
-    set wang_html = #{wangHtml,jdbcType=LONGVARBINARY}
+    set wang_name = #{wangName,jdbcType=VARCHAR},
+      wang_html = #{wangHtml,jdbcType=LONGVARBINARY}
+    where wang_id = #{wangId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ueditor.com.entity.WangEditor" >
+    update wangeditor
+    set wang_name = #{wangName,jdbcType=VARCHAR}
     where wang_id = #{wangId,jdbcType=INTEGER}
   </update>
 </mapper>

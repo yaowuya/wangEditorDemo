@@ -26,7 +26,9 @@ public class WangEditorController extends BaseController{
 
     @ResponseBody
     @RequestMapping("upload")
-    public void upload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+    public void upload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json;charset=utf-8");
+        JsonResult jsonResult=null;
         if(file!=null){
             String path="";//路径
             String type="";//类型
@@ -39,7 +41,7 @@ public class WangEditorController extends BaseController{
                     //用户自身文件夹
                     String userName="xiaoming";
                     // 项目在容器中实际发布运行的根路径
-                    String realPath=request.getSession().getServletContext().getRealPath("\\assets")+"\\upload\\"+userName+"\\";
+                    String realPath=request.getSession().getServletContext().getRealPath("/assets")+"/upload/"+userName+"/";
                     // 自定义的文件名称
                     String trueFileName=String.valueOf(System.currentTimeMillis())+fileName;
                     // 设置存放图片文件的路径
@@ -53,12 +55,14 @@ public class WangEditorController extends BaseController{
                         file.transferTo(new File(path));
                         System.out.println("文件成功上传到指定目录下");
                         // 返回图片的URL地址
-                        response.setContentType("text/text;charset=utf-8");
-                        response.getWriter().write(path.substring(path.indexOf("assets")-1));
+//                        response.setContentType("application/json;charset=utf-8");
+                        jsonResult=new JsonResult(true,"文件成功上传到指定目录下","/"+path.substring(path.indexOf("assets")));
+//                        response.getWriter().write(path.substring(path.indexOf("assets")-1));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }else{
+                    jsonResult=new JsonResult(false,"不是我们想要的文件类型,请按要求重新上传");
                     System.out.println("不是我们想要的文件类型,请按要求重新上传");
                 }
             }else{
@@ -66,7 +70,10 @@ public class WangEditorController extends BaseController{
             }
         }else{
             System.out.println("没有找到相对应的文件");
+            jsonResult=new JsonResult(false,"没有找到相对应的文件");
         }
+        response.getWriter().write(jsonResult.toString());
+//        return jsonResult;
     }
     @ResponseBody
     @RequestMapping("deleteEditor")

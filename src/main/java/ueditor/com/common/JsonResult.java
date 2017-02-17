@@ -92,11 +92,11 @@ public class JsonResult<T>{
 
     @Override
     public String toString() {
-        return "JsonResult{" +
-                "total=" + total +
-                ", success=" + success +
-                ", messages='" + messages + '\'' +
-                ", data=" + data +
-                '}';
+        return "'{" +
+                "\"total\":" + total+
+                ", \"success\":" + success+
+                ",\"messages\":\"" + messages + '\"' +
+                ", \"data\":\"" + data +'\"'+
+                "}'";
     }
 }

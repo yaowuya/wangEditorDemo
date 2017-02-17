@@ -255,6 +255,14 @@
             </resource>
         </resources>
         <plugins>
+            <!--resources copy 编码问题-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <!--测试插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -277,6 +285,15 @@
                             ${basedir}/src/main/webapp/WEB-INF/lib
                         </extdirs>
                     </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webappDirectory>
+                        ${basedir}/src/main/webapp
+                    </webappDirectory>
                 </configuration>
             </plugin>
             <!--mybatis generator 逆向工程-->
@@ -307,15 +324,6 @@
                         <version>1.3.2</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webappDirectory>
-                        ${basedir}/src/main/webapp
-                    </webappDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>

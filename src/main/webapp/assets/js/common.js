@@ -2,7 +2,7 @@
 require.config({
   baseUrl: '/assets/js/',
   paths: {
-    'jquery': 'plugins/jquery-3.1.1.min',
+    'jquery': 'plugins/jquery',
     'bootstrap': 'plugins/bootstrap.min',
     'angular': 'plugins/angular-1.3.0',
     'ajaxPackage': 'package/ajaxPakage', //封装的ajax
