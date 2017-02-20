@@ -55,14 +55,12 @@ public class WangEditorController extends BaseController{
                         file.transferTo(new File(path));
                         System.out.println("文件成功上传到指定目录下");
                         // 返回图片的URL地址
-//                        response.setContentType("application/json;charset=utf-8");
-                        jsonResult=new JsonResult(true,"文件成功上传到指定目录下","/"+path.substring(path.indexOf("assets")));
-//                        response.getWriter().write(path.substring(path.indexOf("assets")-1));
+                        response.setContentType("application/json;charset=utf-8");
+                        response.getWriter().write(path.substring(path.indexOf("assets")-1));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }else{
-                    jsonResult=new JsonResult(false,"不是我们想要的文件类型,请按要求重新上传");
                     System.out.println("不是我们想要的文件类型,请按要求重新上传");
                 }
             }else{
@@ -70,10 +68,7 @@ public class WangEditorController extends BaseController{
             }
         }else{
             System.out.println("没有找到相对应的文件");
-            jsonResult=new JsonResult(false,"没有找到相对应的文件");
         }
-        response.getWriter().write(jsonResult.toString());
-//        return jsonResult;
     }
     @ResponseBody
     @RequestMapping("deleteEditor")

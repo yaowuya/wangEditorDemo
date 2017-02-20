@@ -26,6 +26,7 @@ require.config({
     'moment':'plugins/moment-with-locales',
     'wangEditor':'plugins/wangEditor',
     'plupload':'plugins/plupload/plupload.full.min',
+    'wangeditor':'package/wangEditor',
   },
   shim: {
     'bootstrap': {
