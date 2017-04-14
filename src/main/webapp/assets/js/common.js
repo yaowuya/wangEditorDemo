@@ -27,6 +27,9 @@ require.config({
     'wangEditor':'plugins/wangEditor',
     'plupload':'plugins/plupload/plupload.full.min',
     'wangeditor':'package/wangEditor',
+    'ueditor':'plugins/ueditor/ueditor.all',
+    'ueditorConfig':'plugins/ueditor/ueditor.config',
+    'ueditorParse':'plugins/ueditor/ueditor.parse',
   },
   shim: {
     'bootstrap': {
