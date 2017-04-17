@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ueditor.iml" filepath="$PROJECT_DIR$/ueditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wangEditor.iml" filepath="$PROJECT_DIR$/wangEditor.iml" />
     </modules>
   </component>
 </project>
